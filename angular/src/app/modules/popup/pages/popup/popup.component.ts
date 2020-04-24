@@ -14,6 +14,8 @@ export class PopupComponent implements OnInit {
   message: string;
   stats: Response;
   currentDate = new Date();
+  isLoading = false;
+  isError = false;
 
   constructor(
     @Inject(TAB_ID) readonly tabId: number,
@@ -21,7 +23,7 @@ export class PopupComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.getStats();
+    this.getStats();
   }
 
   async onClick(): Promise<void> {
@@ -39,8 +41,16 @@ export class PopupComponent implements OnInit {
   }
 
   getStats() {
-    this.apiService
-      .getCurrentStats()
-      .subscribe((response) => (this.stats = response));
+    this.isLoading = true;
+    this.apiService.getCurrentStats().subscribe(
+      (response: Response) => {
+        this.isLoading = false;
+        this.stats = response;
+      },
+      (error) => {
+        this.isLoading = false;
+        this.isError = true;
+      }
+    );
   }
 }
