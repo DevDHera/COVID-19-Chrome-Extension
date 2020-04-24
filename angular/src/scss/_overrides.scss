@@ -1,0 +1,21 @@
+// @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,700&display=swap');
+
+@import 'vars';
+
+// Font Override
+* {
+  // font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+// Theme colors override
+// $primary: $af-app-prime-orange;
+// $secondary: $af-app-secondary-gray;
+
+// Custom Theme Colors
+$theme-colors: (
+  'primary-gray': $app-font-color-prime-gray,
+  'primary-orange': $app-prime-orange,
+  'primary-pink': $app-prime-pink,
+);
