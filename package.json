@@ -31,7 +31,6 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "core-js": "^2.6.11",
-    "font-awesome": "^4.7.0",
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "^5.6.1",
     "ngx-countup": "^7.3.0",
