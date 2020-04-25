@@ -1,0 +1,176 @@
+<!-- Title & Date -->
+<div class="row my-3">
+  <div class="col text-center text-primary-purple">
+    <h4>COVID-19 Situation Report</h4>
+    <h6>
+      {{ currentDate | date: 'yyyy-MMM-dd' }} |
+      {{ currentDate | date: 'HH:mm' }}
+    </h6>
+  </div>
+</div>
+<!-- Title & Date -->
+
+<ng-container *ngIf="!isLoading && !isError">
+  <!-- ROW-1 -->
+  <div class="row mb-2">
+    <!-- COL-Total Cases -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-hospital-building text-warning"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">Total Cases</h6>
+              <h4
+                class="card-subtitle text-warning"
+                [countUp]="stats.data.local_total_cases"
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-Total Cases -->
+
+    <!-- //.COL-Active Cases -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-heart-pulse text-primary-pink"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">Active Cases</h6>
+              <h4
+                class="card-subtitle text-primary-pink"
+                [countUp]="stats.data.local_active_cases"
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-Active Cases -->
+  </div>
+  <!-- //.ROW-1 -->
+
+  <!-- ROW-2 -->
+  <div class="row mb-2">
+    <!-- COL-New Cases -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-ambulance text-info"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">New Cases</h6>
+              <h4
+                class="card-subtitle text-info"
+                [countUp]="stats.data.local_new_cases"
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-New Cases -->
+    <!-- COL-Investigations -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-home-plus text-primary-orange"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">Investigations</h6>
+              <h4
+                class="card-subtitle text-primary-orange"
+                [countUp]="
+                  stats.data.local_total_number_of_individuals_in_hospitals
+                "
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-Investigations -->
+  </div>
+  <!-- //.ROW-2 -->
+
+  <!-- ROW-3 -->
+  <div class="row mb-2">
+    <!-- COL-Recovered -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-run text-success"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">Recovered</h6>
+              <h4
+                class="card-subtitle text-success"
+                [countUp]="stats.data.local_recovered"
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-Recovered -->
+    <!-- COL-Deaths -->
+    <div class="col">
+      <div class="card">
+        <div class="card-body py-2">
+          <div class="row">
+            <div class="col-2 mr-3">
+              <span class="mdi mdi-bed text-danger"></span>
+            </div>
+            <div class="col">
+              <h6 class="card-title text-muted">Deaths</h6>
+              <h4
+                class="card-subtitle text-danger"
+                [countUp]="stats.data.local_deaths"
+              ></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //.COL-Deaths -->
+  </div>
+  <!-- //.ROW-3 -->
+  <!-- ROW-4 -->
+  <div class="row mb-2">
+    <div class="col">
+      <a
+        [routerLink]="[]"
+        (click)="loadChartsView()"
+        class="float-right text-decoration-none"
+      >
+        See more
+      </a>
+    </div>
+  </div>
+  <!-- //.ROW-4 -->
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <div class="my-5">
+    <img src="assets/img/loading.gif" class="mx-auto d-block" />
+    <p class="small text-center mt-1 text-muted">Fetching Info...</p>
+  </div>
+</ng-container>
+<ng-container *ngIf="isError">
+  <div class="my-5 text-center text-warning">
+    <span class="mdi mdi-alert-circle-outline"></span>
+    <p class="small mt-1">Something went wrong!</p>
+  </div>
+</ng-container>
