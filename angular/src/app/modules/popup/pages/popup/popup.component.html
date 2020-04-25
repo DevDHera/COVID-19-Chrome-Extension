@@ -2,4 +2,7 @@
   (loadCharts)="onLoadChartsView($event)"
   *ngIf="!loadCharts"
 ></app-popup-cards>
-<app-popup-chart *ngIf="loadCharts"></app-popup-chart>
+<app-popup-chart
+  *ngIf="loadCharts"
+  (loadCharts)="onLoadChartsView($event)"
+></app-popup-chart>

@@ -1,3 +1,59 @@
-<p>
-  popup-chart works!
-</p>
+<!-- Title & Date -->
+<div class="row my-3">
+  <div class="col text-center text-primary-purple">
+    <h4>COVID-19 Situation Report</h4>
+    <h6>Total Cases <small>vs</small> Recoveries <small>vs</small> Deaths</h6>
+  </div>
+</div>
+<!-- Title & Date -->
+
+<ng-container *ngIf="!isLoading && !isError">
+  <!-- ROW-1 -->
+  <div class="row my-3">
+    <div class="col">
+      <canvas
+        baseChart
+        width="400"
+        height="400"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+      ></canvas>
+    </div>
+  </div>
+  <!-- //.ROW-1 -->
+  <!-- ROW-2 -->
+  <div class="row mb-2">
+    <div class="col">
+      <a
+        [routerLink]="[]"
+        (click)="loadCardsView()"
+        class="float-right text-decoration-none"
+      >
+        Go Back
+      </a>
+    </div>
+  </div>
+  <!-- //.ROW-2 -->
+</ng-container>
+
+<!-- Loading Template -->
+<ng-container *ngIf="isLoading">
+  <div class="my-5">
+    <img src="assets/img/loading.gif" class="mx-auto d-block" />
+    <p class="small text-center mt-1 text-muted">Fetching Info...</p>
+  </div>
+</ng-container>
+<!-- //.Loading Template -->
+
+<!-- Error Template -->
+<ng-container *ngIf="isError">
+  <div class="my-5 text-center text-warning">
+    <span class="mdi mdi-alert-circle-outline"></span>
+    <p class="small mt-1">Something went wrong!</p>
+  </div>
+</ng-container>
+<!-- //.Error Template -->
