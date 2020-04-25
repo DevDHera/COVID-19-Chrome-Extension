@@ -1,31 +1,29 @@
 {
   "manifest_version": 2,
-  "name": "covid19-extension",
-  "short_name": "covid19-extension",
+  "name": "COVID 19 - Stats (SL)",
+  "short_name": "COVID 19 - Stats (SL)",
   "version": "1.0.0",
-  "description": "Generated with @larscom/ng-chrome-extension",
-  "permissions": [
-    "tabs"
-  ],
+  "description": "Get latest situation reports of COVID-19 in Sri Lanka",
+  "permissions": ["tabs"],
   "browser_action": {
     "default_popup": "index.html?#/popup",
     "default_title": "Angular Chrome Extension"
   },
   "content_scripts": [
     {
-      "js": [
-        "contentPage.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "js": ["contentPage.js"],
+      "matches": ["<all_urls>"]
     }
   ],
   "background": {
-    "scripts": [
-      "backgroundPage.js"
-    ],
+    "scripts": ["backgroundPage.js"],
     "persistent": false
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "icons": {
+    "16": "assets/img/logo/logo-16x16.png",
+    "32": "assets/img/logo/logo-24x24.png",
+    "48": "assets/img/logo/logo-32x32.png",
+    "128": "assets/img/logo/logo-128x128.png"
+  }
 }
