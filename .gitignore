@@ -88,3 +88,6 @@ node_modules/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Publishable Zip
+extension-build.zip

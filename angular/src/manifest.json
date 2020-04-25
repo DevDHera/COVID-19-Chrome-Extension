@@ -4,7 +4,7 @@
   "short_name": "COVID 19 - Stats (SL)",
   "version": "1.0.0",
   "description": "Get latest situation reports of COVID-19 in Sri Lanka",
-  "permissions": ["tabs"],
+  "permissions": ["activeTab"],
   "browser_action": {
     "default_popup": "index.html?#/popup",
     "default_title": "Angular Chrome Extension"
