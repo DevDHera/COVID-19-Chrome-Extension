@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://hpb.health.gov.lk/api',
+  csvUrl: 'https://raw.githubusercontent.com/arimacdev/covid19-srilankan-data',
 };
 
 /*
