@@ -25,7 +25,6 @@ and much more.
 ## Summary
 
 - [Getting Started](#getting-started)
-- [Runing the tests](#running-the-tests)
 - [Deployment](#deployment)
 - [Built With](#built-with)
 - [Contributing](#contributing)
