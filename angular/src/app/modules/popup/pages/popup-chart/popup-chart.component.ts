@@ -115,7 +115,7 @@ export class PopupChartComponent implements OnInit {
     const recoveries = [];
     const deaths = [];
     let i;
-    for (i = 0; i <= this.datesDataSet.length; i += 7) {
+    for (i = 0; i < this.datesDataSet.length; i += 7) {
       this.lineChartLabels.push(this.datesDataSet[i]);
       totalCases.push(this.totalCasesDataSet[i]);
       recoveries.push(this.recoveriesDataSet[i]);
@@ -123,7 +123,7 @@ export class PopupChartComponent implements OnInit {
     }
 
     // Add Current Date
-    if (i !== this.datesDataSet.length) {
+    if (i !== this.datesDataSet.length - 1) {
       this.lineChartLabels.push(
         this.datesDataSet[this.datesDataSet.length - 1]
       );
@@ -135,7 +135,7 @@ export class PopupChartComponent implements OnInit {
     this.lineChartData.push(
       { data: totalCases, label: 'Total Cases' },
       { data: recoveries, label: 'Recoveries' },
-      { data: deaths, label: 'Deats' }
+      { data: deaths, label: 'Deaths' }
     );
     this.isLoading = false;
   }
